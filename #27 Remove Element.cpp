@@ -1,9 +1,9 @@
 ﻿#include <vector>
 #include <algorithm>
 
-//Remove Duplicates from Sorted Array
+//Remove Element
 
-//https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+//https://leetcode.com/problems/remove-element/
 
 class Solution {
 public:
