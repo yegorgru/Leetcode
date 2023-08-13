@@ -15,6 +15,9 @@ public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> result;
         zigzagLevelOrder(root, result, 0);
+        for(size_t i = 1; i < result.size(); i+=2) {
+            reverse(result[i].begin(), result[i].end());
+        }
         return result;
     }
 
@@ -27,13 +30,7 @@ private:
             result.emplace_back();
         }
         result[currentLevel].push_back(root->val);
-        if(currentLevel % 2) {
-            zigzagLevelOrder(root->left, result, currentLevel + 1);
-            zigzagLevelOrder(root->right, result, currentLevel + 1);
-        }
-        else {
-            zigzagLevelOrder(root->right, result, currentLevel + 1);
-            zigzagLevelOrder(root->left, result, currentLevel + 1);
-        }
+        zigzagLevelOrder(root->left, result, currentLevel + 1);
+        zigzagLevelOrder(root->right, result, currentLevel + 1);
     }
 };
